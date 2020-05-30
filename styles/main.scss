@@ -1,13 +1,67 @@
 @import 'reset';
+@import 'variables';
+@import 'mixins';
 @import 'fonts';
-
-$light-grey: #F4F4F4;
-$dark-grey: #727279;
-$purple: #2A2766;
-$black: #0F0F0F;
-$white: #FFFFFF;
-
+@import 'spacing';
+@import 'flex';
 
 * {
     font-family: 'Raleway', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav {
+    .nav-items-container {
+        @include tablet {
+            position: fixed;
+            top: -100vh;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            background: $purple;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease-in-out;
+        }
+        &.open {
+            top: 0;
+        }
+        ul {
+            @include tablet {
+                flex-direction: column;
+                align-items: center;
+            }
+            li {
+                cursor: pointer;
+                padding: 0.5rem 0;
+                margin: 0 1rem;
+                @include tablet {
+                    color: $white;
+                    font-weight: bold;
+                    font-size: 1.3rem;
+                    margin: 0.5rem 0;
+                }
+                &.underlined {
+                    border-bottom: 1px solid $purple;
+                }
+            }
+        }
+    }
+    .menu-icon-container {
+        display: none;
+        @include tablet {
+            display: block;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 15px;
+            z-index: 99;
+            cursor: pointer;
+        }
+    }
 }
