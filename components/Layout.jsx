@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Client } from '../prismic-configuration'
 import Prismic from "prismic-javascript";
 import Navbar from './Navbar'
+import Footer from './Footer'
 import { useRouter } from 'next/router'
 
 const Layout = ({ children }) => {
@@ -41,6 +42,7 @@ const Layout = ({ children }) => {
         <main className='wrapper'> 
             <Navbar navItems={navItems} subNavItems={subNavItems} query={router.query.page}/>
             {children}
+            <Footer navItems={navItems} subNavItems={subNavItems} />
         </main>
     )
 }

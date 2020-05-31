@@ -21,9 +21,10 @@ const Navbar = ({ navItems, query, subNavItems }) => {
                     <ul className="flex content-end">
                         {navItems.map(item => (
                             <Link as={linkResolver(item)} href={hrefResolver(item)} key={item.id}>
-                                <li 
+                                <li
+                                         
                                     onMouseEnter={item.uid === 'services' ? () => setSubNavOpen(true) : null}
-                                    onMouseLeave={item.uid === 'services' ? () => setSubNavOpen(false) : null}
+                                    //onMouseLeave={item.uid === 'services' ? () => setSubNavOpen(false) : null}
                                     className={`${query === item.uid ? 'underlined' : ''}`} 
                                     onClick={() => handleMobileNav()}
                                 >
@@ -33,9 +34,6 @@ const Navbar = ({ navItems, query, subNavItems }) => {
                         ))}
                     </ul>
                 </div>
-                {subNavOpen &&
-                    <SubNav subNavItems={subNavItems} />
-                }
                 <div className="menu-icon-container">
                     <img 
                         src={open ? '/images/x.svg' : '/images/menu.svg'} 
@@ -44,6 +42,9 @@ const Navbar = ({ navItems, query, subNavItems }) => {
                     />
                 </div>    
             </div>
+            {subNavOpen &&
+                    <SubNav subNavItems={subNavItems} setSubNavOpen={setSubNavOpen}/>
+                }
         </nav>
     )
 }

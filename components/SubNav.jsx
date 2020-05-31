@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import { linkResolver, hrefResolver } from '../prismic-configuration'
 
-const SubNav = ({ subNavItems }) => {
+const SubNav = ({ subNavItems, setSubNavOpen }) => {
     return (
-        <div className='service-sub-nav'>
+        <div className='service-sub-nav' onMouseLeave={() => setSubNavOpen(false)}>
             <div className='nav-items-container flex-1'>
                 <ul className="flex content-center items-center">
                     {subNavItems.map(item => (

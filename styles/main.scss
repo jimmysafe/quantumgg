@@ -9,12 +9,17 @@
     font-family: 'Raleway', sans-serif;
 }
 
+.text-center {
+    text-align: center;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
 }
 
 nav {
+    position: relative;
     .nav-items-container {
         @include tablet {
             position: fixed;
@@ -73,5 +78,65 @@ nav {
     width: 100%;
     ul {
         height: 50px;
+        li {
+            color: $purple;
+        }
+    }
+}
+
+footer {
+    position: relative;
+    margin-top: 10rem;
+    padding: 5rem 0 2rem 0;
+    background-color: $purple;
+    color: $white;
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        @include tablet {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            div {
+                margin-bottom: 2rem;
+                text-align: center!important;
+            }
+        }
+    }
+    .footer-nav-link {
+        cursor: pointer;
+        font-weight: bold;
+        text-decoration: underline;
+        margin: 0.6rem 0;
+    }
+    .footer-company-info {
+        & > div{
+            text-align: right;
+            margin: 0.4rem 0;
+        }
+    }
+    .footer-contact-card {
+        background: $white;
+        color: $black;
+        max-width: 350px;
+        position: absolute;
+        top: -125px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 2rem;
+        border-radius: 4px;
+        box-shadow: 0px 0px 10px 1px #80808038;
+        text-align: center;
+        @include tablet {
+            top: -155px;
+            width: 70%;
+        }
+        h3 {
+            font-size: 25px;
+            font-weight: 700;
+            color: $purple;
+            margin-bottom: 1rem;
+        }
     }
 }
