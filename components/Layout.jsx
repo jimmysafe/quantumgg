@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 
 const Layout = ({ children }) => {
     const [navItems, setNavItems] = useState()
+    const [subNavItems, setSubNavItems] = useState()
     const router = useRouter()
 
     useEffect(() => {
@@ -21,12 +22,24 @@ const Layout = ({ children }) => {
         }
     }, [])
 
-    if(!navItems) return <p>Loading...</p>
+    useEffect(() => {
+        if(!subNavItems){
+            const client = Client()
+            client
+            .query(Prismic.Predicates.at("document.tags", ["service"]))
+            .then(res => {
+                let items = res.results.slice().sort((a, b) => new Date(b.first_publication_date) - new Date(a.first_publication_date))
+                setSubNavItems(items.reverse())
+            })
+            .catch(err => console.log(err))
+        }
+    }, [])
 
-    console.log(navItems)
+    if(!navItems || !subNavItems) return <p>Loading...</p>
+
     return (
         <main className='wrapper'> 
-            <Navbar navItems={navItems} query={router.query.page}/>
+            <Navbar navItems={navItems} subNavItems={subNavItems} query={router.query.page}/>
             {children}
         </main>
     )

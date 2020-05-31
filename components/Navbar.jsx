@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { linkResolver, hrefResolver } from '../prismic-configuration'
+import SubNav from './SubNav'
 
-const Navbar = ({ navItems, query }) => {
+const Navbar = ({ navItems, query, subNavItems }) => {
     const [open, setOpen] = useState(false)
+    const [subNavOpen, setSubNavOpen] = useState(false)
 
     const handleMobileNav = () => {
         setOpen(!open)
@@ -19,13 +21,21 @@ const Navbar = ({ navItems, query }) => {
                     <ul className="flex content-end">
                         {navItems.map(item => (
                             <Link as={linkResolver(item)} href={hrefResolver(item)} key={item.id}>
-                                <li className={`${query === item.uid ? 'underlined' : ''}`} onClick={() => handleMobileNav()}>
+                                <li 
+                                    onMouseEnter={item.uid === 'services' ? () => setSubNavOpen(true) : null}
+                                    onMouseLeave={item.uid === 'services' ? () => setSubNavOpen(false) : null}
+                                    className={`${query === item.uid ? 'underlined' : ''}`} 
+                                    onClick={() => handleMobileNav()}
+                                >
                                     {item.data.page_title[0].text}
                                 </li>
                             </Link>
                         ))}
                     </ul>
                 </div>
+                {subNavOpen &&
+                    <SubNav subNavItems={subNavItems} />
+                }
                 <div className="menu-icon-container">
                     <img 
                         src={open ? '/images/x.svg' : '/images/menu.svg'} 

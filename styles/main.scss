@@ -65,3 +65,13 @@ nav {
         }
     }
 }
+
+.service-sub-nav {
+    position: absolute;
+    bottom: -50px;
+    background: $light-grey;
+    width: 100%;
+    ul {
+        height: 50px;
+    }
+}

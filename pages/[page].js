@@ -2,8 +2,8 @@ import { Client } from '../prismic-configuration'
 import { RichText } from 'prismic-reactjs';
 
 export default function Page({ page, err }) {
-    console.log(page)
-    console.log(err)
+    if(page) console.log(page)
+    if(err) console.log(err)
     if(!page || err) return <p>An error occurred..</p>
     return (
         <div>HI PAGE!</div>
