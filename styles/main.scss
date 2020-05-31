@@ -21,6 +21,7 @@
 nav {
     position: relative;
     .nav-items-container {
+        z-index: 98;
         @include tablet {
             position: fixed;
             top: -100vh;
@@ -43,8 +44,15 @@ nav {
             }
             li {
                 cursor: pointer;
-                padding: 0.5rem 0;
-                margin: 0 1rem;
+                padding: 0.5rem 0rem;
+                margin: 0 1.5rem;
+                &.button {
+                    padding: 0.8rem 1.5rem;
+                    border: 1px solid $purple;
+                    font-weight: bold;
+                    color: $purple;
+                    border-radius: 4px;
+                }
                 @include tablet {
                     color: $white;
                     font-weight: bold;
@@ -137,6 +145,37 @@ footer {
             font-weight: 700;
             color: $purple;
             margin-bottom: 1rem;
+        }
+    }
+}
+
+.section-text {
+    text-align: center;
+    padding: 2.7rem;
+    @include tablet {
+        padding: 2rem 1rem;
+    }
+    h3 {
+        font-size: 28px;
+        font-weight: 700;
+        color: $purple;
+    }
+    &.purple {
+        color: $white!important;
+        h3 { color: $white!important; }
+    }
+    p {
+        margin: 1rem auto;
+        max-width: 630px;
+    }
+    .logos-container {
+        margin: 1rem 0;
+        img {
+            margin: 0 0.7rem;
+            max-width: 300px;
+            @include tablet {
+                margin: 0.7rem 0;
+            }
         }
     }
 }

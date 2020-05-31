@@ -2,8 +2,7 @@ import Link from 'next/link'
 import { linkResolver, hrefResolver } from '../prismic-configuration'
 
 const Footer = ({ navItems, subNavItems }) => {
-    console.log(navItems)
-    console.log(subNavItems)
+
     return (
         <footer>
             <div className="footer-contact-card">
@@ -53,3 +52,5 @@ const Footer = ({ navItems, subNavItems }) => {
 }
 
 export default Footer
+
+

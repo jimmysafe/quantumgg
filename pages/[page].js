@@ -1,12 +1,17 @@
 import { Client } from '../prismic-configuration'
 import { RichText } from 'prismic-reactjs';
+import Slice from '../components/Slice';
 
 export default function Page({ page, err }) {
     if(page) console.log(page)
     if(err) console.log(err)
     if(!page || err) return <p>An error occurred..</p>
     return (
-        <div>HI PAGE!</div>
+        <div className="page-content">
+            {page.data.body.map((slice, i) => (
+                <Slice key={i} slice={slice}/>
+            ))}
+        </div>
     )
 }
 
