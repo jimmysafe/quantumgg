@@ -54,3 +54,5 @@ const Navbar = ({ navItems, query, subNavItems }) => {
 }
 
 export default Navbar
+
+
