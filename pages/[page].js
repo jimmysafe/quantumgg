@@ -9,7 +9,7 @@ export default function Page({ page, err }) {
     return (
         <div className="page-content">
             {page.data.body.map((slice, i) => (
-                <Slice key={i} slice={slice}/>
+                <Slice key={i} slice={slice} page={page}/>
             ))}
         </div>
     )

@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { linkResolver, hrefResolver } from '../../prismic-configuration'
 import Button from '../elements/Button'
 
 const Cards = ({ slice }) => {
@@ -15,6 +14,7 @@ const Cards = ({ slice }) => {
                 <div className="cards-container">
                     {slice.items && slice.items.map((item, i) => (
                         <Card 
+                            key={i}
                             icon={item.card_icon}
                             title={item.card_title[0] && item.card_title[0].text}
                             text={item.card_text[0] && item.card_text[0].text}

@@ -19,6 +19,12 @@
     margin: 0 auto;
 }
 
+body {
+    @include desktop {
+        overflow: visible!important;
+    }
+}
+
 .btn {
     cursor: pointer;
     padding: 0.8rem 1.5rem;
@@ -96,6 +102,7 @@ nav {
 
 .service-sub-nav {
     position: absolute;
+    z-index: 3;
     bottom: -50px;
     background: $light-grey;
     width: 100%;
@@ -275,5 +282,43 @@ footer {
         flex: 1;
         color: $dark-grey;
         margin-bottom: 1rem;
+    }
+}
+
+.section-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    &::after {
+        content: '';
+        opacity: 0.5;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: $purple;
+    }
+    .heading{
+        z-index: 2;
+        h1 {
+            font-size: 45px;
+            text-transform: uppercase;
+            max-width: 900px;
+            margin: 0 auto;
+            color: $white;
+            font-weight: bold;
+            text-align: center;
+        }
+    }
+    .sub-heading {
+        z-index: 2;
+        color: $white;
+        margin-top: 2rem;
+        text-align: center;
     }
 }

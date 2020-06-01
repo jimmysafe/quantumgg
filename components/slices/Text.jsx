@@ -9,9 +9,7 @@ const Text = ({ slice }) => {
 
     const { items:images } = slice
 
-    console.log(images)
-
-    const heading = text_heading[0].text
+    const heading = text_heading[0] && text_heading[0].text
 
     const getBgColor = () => {
         switch(section_bg_color){
