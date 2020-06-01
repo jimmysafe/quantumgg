@@ -17,6 +17,7 @@ const Layout = ({ children }) => {
             .query(Prismic.Predicates.at("document.tags", ["nav-link"]))
             .then(res => {
                 let items = res.results.slice().sort((a, b) => new Date(b.first_publication_date) - new Date(a.first_publication_date))
+                console.log(items)
                 setNavItems(items.reverse())
             })
             .catch(err => console.log(err))
