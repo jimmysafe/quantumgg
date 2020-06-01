@@ -1,5 +1,6 @@
 
 import { RichText } from 'prismic-reactjs';
+import { Parallax, Background } from 'react-parallax';
 
 const Banner = (props) => {
     console.log('banner', props)
@@ -7,12 +8,15 @@ const Banner = (props) => {
     const heading = slice.primary.banner_heading[0]
     const sub_heading = slice.primary.banner_text
     return (
+        <Parallax
+            blur={0}
+            bgImage={slice.primary.bg_image.url}
+            bgImageAlt={slice.primary.bg_image.alt}
+            strength={400}
+        >
         <div 
             className="section-banner"
-            style={{
-                minHeight: page.uid === 'home' ? '60vh' : '30vh',
-                backgroundImage: `url(${slice.primary.bg_image.url})`
-            }}
+            style={{ minHeight: page.uid === 'home' ? '60vh' : '30vh' }}
         >
             <div className="container flex content-center items-center column">
                 {heading &&
@@ -25,6 +29,7 @@ const Banner = (props) => {
                 </div>
             </div>
         </div>
+        </Parallax>
     )
 }
 

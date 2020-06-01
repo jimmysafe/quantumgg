@@ -300,9 +300,6 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
     position: relative;
     @include mobile {
         min-height: 30vh!important;
