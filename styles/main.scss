@@ -114,9 +114,42 @@ nav {
     }
 }
 
+.footer-top {
+    background: $light-grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .footer-contact-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: $white;
+        transform: translateY(3rem);
+        color: $black;
+        max-width: 350px;
+        padding: 2rem;
+        border-radius: 4px;
+        box-shadow: 0px 0px 10px 1px #80808038;
+        text-align: center;
+        @include tablet {
+            top: -155px;
+            width: 70%;
+        }
+        h3 {
+            font-size: 25px;
+            font-weight: 700;
+            color: $purple;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            margin-top: 2rem;
+        }
+    }
+}
+
 footer {
-    position: relative;
-    margin-top: 10rem;
     padding: 5rem 0 2rem 0;
     background-color: $purple;
     color: $white;
@@ -146,29 +179,6 @@ footer {
             margin: 0.4rem 0;
         }
     }
-    .footer-contact-card {
-        background: $white;
-        color: $black;
-        max-width: 350px;
-        position: absolute;
-        top: -125px;
-        left: 50%;
-        transform: translateX(-50%);
-        padding: 2rem;
-        border-radius: 4px;
-        box-shadow: 0px 0px 10px 1px #80808038;
-        text-align: center;
-        @include tablet {
-            top: -155px;
-            width: 70%;
-        }
-        h3 {
-            font-size: 25px;
-            font-weight: 700;
-            color: $purple;
-            margin-bottom: 1rem;
-        }
-    }
 }
 
 .section-text {
@@ -196,7 +206,8 @@ footer {
             margin: 0 0.7rem;
             max-width: 150px;
             @include tablet {
-                margin: 0.7rem 0;
+                max-width: 120px;
+                margin: 0.7rem 0.5rem;
             }
         }
     }
@@ -293,6 +304,9 @@ footer {
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
+    @include mobile {
+        min-height: 30vh!important;
+    }
     &::after {
         content: '';
         opacity: 0.5;
@@ -313,6 +327,10 @@ footer {
             color: $white;
             font-weight: bold;
             text-align: center;
+            @include tablet {
+                font-size: 28px;
+                font-weight: 800;
+            }
         }
     }
     .sub-heading {

@@ -1,14 +1,23 @@
 import Link from 'next/link'
 import { linkResolver, hrefResolver } from '../prismic-configuration'
+import Button from '../components/elements/Button'
 
 const Footer = ({ navItems, subNavItems }) => {
 
     return (
-        <footer>
+        <>
+        <div className="footer-top">
             <div className="footer-contact-card">
                 <h3>Talk to an expert</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto reprehenderit eveniet omnis illo possimus, quod porro aspernatur quidem repudiandae eius, quos et deleniti, labore officia ducimus sunt a ratione quae!</p>
+                <Link as={`/contact-us`} href="/[page]">
+                    <a>
+                        <Button dark>Contact Us</Button>
+                    </a>
+                </Link>
             </div>
+        </div>
+        <footer>
             <div className="footer-container container">
                 <div className="footer-main-nav flex-1">
                     <ul>
@@ -48,6 +57,7 @@ const Footer = ({ navItems, subNavItems }) => {
                 </div>
             </div>
         </footer>
+        </>
     )
 }
 
