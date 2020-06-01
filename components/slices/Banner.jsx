@@ -1,9 +1,8 @@
 
 import { RichText } from 'prismic-reactjs';
-import { Parallax, Background } from 'react-parallax';
+import { Parallax } from 'react-parallax';
 
 const Banner = (props) => {
-    console.log('banner', props)
     const { slice, page } = props
     const heading = slice.primary.banner_heading[0]
     const sub_heading = slice.primary.banner_text
@@ -24,9 +23,11 @@ const Banner = (props) => {
                         <h1>{heading.text}</h1>
                     </div>
                 }
-                <div className="sub-heading">
-                    <RichText render={sub_heading} />
-                </div>
+                {sub_heading &&
+                    <div className="sub-heading">
+                        <RichText render={sub_heading} />
+                    </div>
+                }
             </div>
         </div>
         </Parallax>

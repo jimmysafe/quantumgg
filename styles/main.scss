@@ -191,13 +191,14 @@ footer {
         font-size: 28px;
         font-weight: 700;
         color: $purple;
+        margin-bottom: 2rem;
     }
     &.purple {
         color: $white!important;
         h3 { color: $white!important; }
     }
     p {
-        margin: 2rem auto;
+        margin: 0.6rem auto;
         max-width: 630px;
     }
     .logos-container {
@@ -210,6 +211,10 @@ footer {
                 margin: 0.7rem 0.5rem;
             }
         }
+    }
+
+    .btn {
+        margin-top: 2rem;
     }
 }
 
