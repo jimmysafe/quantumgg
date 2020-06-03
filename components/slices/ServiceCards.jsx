@@ -37,3 +37,4 @@ const Card = ({ title, text }) => {
 }
 
 export default ServiceCards
+

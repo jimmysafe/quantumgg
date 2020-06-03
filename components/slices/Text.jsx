@@ -47,6 +47,8 @@ const Text = ({ slice }) => {
                 {main_text_content.map((content, i) => {
                     if(content.text){
                         return  <p key={i}>{content.text}</p>
+                    } else if(content.type === 'image'){
+                        return <img className="content-image" src={content.url} alt={content.alt} />
                     }
                 })}
 

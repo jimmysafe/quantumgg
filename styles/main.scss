@@ -216,6 +216,14 @@ footer {
     .btn {
         margin-top: 2rem;
     }
+
+    .content-image {
+        max-width: 550px;
+        margin: 2rem 0;
+        @include mobile {
+            width: 100%;
+        }
+    }
 }
 
 .section-quote {
