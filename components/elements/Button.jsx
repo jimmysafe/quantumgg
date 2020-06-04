@@ -1,9 +1,9 @@
 
-const Button = ({ children, dark }) => {
+const Button = ({ children, dark, pxl }) => {
     return (
-        <div className={`${dark ? 'btn dark' : 'btn'}`}>
+        <button className={`${dark ? 'btn dark' : 'btn'} ${pxl ? 'p-l-xl p-r-xl' : ''}`}>
             {children}
-        </div>
+        </button>
     )
 }
 

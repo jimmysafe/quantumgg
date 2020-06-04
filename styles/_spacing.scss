@@ -40,7 +40,7 @@ $positions: (
             margin-#{$posValue}: sizeValue($sizeKey, $sizeValue);
         }
         .#{$paddingKey}#{$separator}#{$posKey}#{$separator}#{$sizeKey} {
-            padding-#{$posValue}: sizeValue($sizeKey, $sizeValue);
+            padding-#{$posValue}: sizeValue($sizeKey, $sizeValue)!important;
         }
     }
 }

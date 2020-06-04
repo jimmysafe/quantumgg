@@ -5,6 +5,8 @@ import Cards from './slices/Cards'
 import ServiceCards from './slices/ServiceCards'
 import MiniCards from "./slices/MiniCards"
 import Contacts from "./slices/Contacts"
+import ContactForm from "./ContactForm"
+import FooterCard from "./slices/FooterCard"
 
 const Slice = (props) => {
     const { slice_type } = props.slice;
@@ -25,6 +27,10 @@ const Slice = (props) => {
                 return <MiniCards {...props}/>
             case 'contacts':
                 return <Contacts {...props}/>
+            case 'contact_form':
+                return <ContactForm {...props}/>
+            case 'footer_card':
+                return <FooterCard {...props}/>
             default:
                 return null
         }
