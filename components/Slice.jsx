@@ -3,6 +3,8 @@ import Quote from "./slices/Quote"
 import Text from './slices/Text'
 import Cards from './slices/Cards'
 import ServiceCards from './slices/ServiceCards'
+import MiniCards from "./slices/MiniCards"
+import Contacts from "./slices/Contacts"
 
 const Slice = (props) => {
     const { slice_type } = props.slice;
@@ -19,6 +21,10 @@ const Slice = (props) => {
                 return <Cards {...props} />
             case 'services_cards':
                 return <ServiceCards {...props}/>
+            case 'mini_cards':
+                return <MiniCards {...props}/>
+            case 'contacts':
+                return <Contacts {...props}/>
             default:
                 return null
         }
