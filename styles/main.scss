@@ -174,7 +174,6 @@ footer {
     .footer-nav-link {
         cursor: pointer;
         font-weight: bold;
-        text-decoration: underline;
         margin: 0.6rem 0;
     }
     .footer-company-info {
@@ -231,7 +230,6 @@ footer {
 }
 
 .section-quote {
-    background-color: $purple;
     color: $white;
     padding: 5rem 3rem;
     @include tablet {
