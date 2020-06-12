@@ -19,7 +19,7 @@ const Phone = ({ text }) => {
     return (
         <div className="card left">
             <div className="icon">
-                <img src="/images/check.svg" alt=""/>
+                <img src="/images/phone.svg" alt="call us"/>
             </div>
             <div className="title">
                 <h3>Call us</h3>
@@ -35,7 +35,7 @@ const Email = ({ email }) => {
     return (
         <div className="card center">
             <div className="icon">
-                <img src="/images/check.svg" alt=""/>
+                <img src="/images/email.svg" alt="email us"/>
             </div>
             <div className="title">
                 <h3>Email us</h3>
@@ -51,7 +51,7 @@ const Location = ({ text }) => {
     return (
         <div className="card right">
             <div className="icon">
-                <img src="/images/check.svg" alt=""/>
+                <img src="/images/location.svg" alt="find us"/>
             </div>
             <div className="title">
                 <h3>Find us</h3>
