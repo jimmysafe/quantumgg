@@ -318,8 +318,15 @@ footer {
     justify-content: center;
     align-items: center;
     position: relative;
+    min-height: 30vh;
+    &.home-banner {
+        min-height: 50vh;
+        @include mobile {
+            min-height: 70vh!important;
+        }
+    }
     @include mobile {
-        min-height: 30vh!important;
+        min-height: 30vh;
     }
     &::after {
         content: '';
