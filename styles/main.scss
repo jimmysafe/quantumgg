@@ -10,7 +10,7 @@
     line-height: 1.2!important;
 }
 
-h1 {
+h1, h3 {
     font-family: 'Raleway Bold', sans-serif!important;
 }
 
@@ -37,9 +37,18 @@ body {
     border: 1px solid $purple;
     background: $white;
     color: $purple;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        color: $white;
+        background: $purple;
+    }
     &.dark {
         background: $purple;
         color: $white;
+        &:hover {
+            color: $purple;
+            background: $white;
+        }
     }
 }
 
@@ -47,6 +56,14 @@ nav {
     .container {
         height: 87px; 
         position: relative;
+        @include mobile {
+            height: 60px;
+            .logo-container {
+                img{
+                    width: 150px!important;
+                }
+            }
+        }
     }
     position: relative;
     .nav-items-container {
@@ -66,6 +83,11 @@ nav {
                     font-weight: bold;
                     color: $purple;
                     border-radius: 4px;
+                    transition: all 0.2s ease-in-out;
+                    &:hover {
+                        color: $white;
+                        background: $purple;
+                    }
                 }
                 &.underlined {
                     border-bottom: 1px solid $purple;
@@ -177,7 +199,7 @@ nav {
         max-width: 350px;
         padding: 2rem;
         border-radius: 4px;
-        box-shadow: 0px 0px 10px 1px #80808038;
+        box-shadow:  0px 2px 22px 0px rgba(0, 0, 0, 0.05);
         text-align: center;
         @include tablet {
             top: -155px;
@@ -378,7 +400,7 @@ footer {
         justify-content: center;
         align-items: center;
         text-align: center;
-        box-shadow: 0px 2px 22px 0px rgba(0, 0, 0, 0.05);
+        box-shadow:  0px 2px 22px 0px rgba(0, 0, 0, 0.05);
         padding: 2rem;
         border-radius: 4px;
         margin: 1rem;
@@ -464,7 +486,7 @@ footer {
             width: 44%;
             margin: 1%;
             text-align: center;
-            box-shadow: 0px 2px 22px 0px rgba(0, 0, 0, 0.05);
+            box-shadow:  0px 2px 22px 0px rgba(0, 0, 0, 0.05);
             padding: 2%;
             border-radius: 4px;
             @include mobile {
@@ -512,7 +534,7 @@ footer {
             align-items: center;
             .mini-card {
                 background: $white;
-                box-shadow: 0px 2px 22px 0px rgba(0, 0, 0, 0.05);
+                box-shadow:  0px 2px 22px 0px rgba(0, 0, 0, 0.05);
                 border-radius: 4px;
                 padding: 1rem;
                 margin: 1rem;
@@ -539,7 +561,7 @@ footer {
             justify-content: center;
             text-align: center;
             transform: translateY(-3rem);
-            box-shadow: 0px 2px 22px 0px rgba(0, 0, 0, 0.05);
+            box-shadow:   0px 2px 22px 0px rgba(0, 0, 0, 0.05);
             @include mobile {
                 flex-direction: column;
                 margin: 0 2rem;
