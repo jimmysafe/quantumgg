@@ -17,7 +17,7 @@ const Footer = ({ navItems, subNavItems }) => {
                 </div>
                 <div className="footer-services-nav flex-1">
                     <ul className="text-center">
-                        <li className="m-b-sm">Services</li>
+                        <li className="m-b-md" style={{ marginTop: '0.6rem' }}>Services</li>
                         {subNavItems.map(item => (
                             <Link as={linkResolver(item)} href={hrefResolver(item)} key={item.id}>
                                 <li className="footer-nav-link">{item.data.page_title[0].text}</li>

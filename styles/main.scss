@@ -435,7 +435,7 @@ footer {
     &.home-banner {
         min-height: 50vh;
         @include mobile {
-            min-height: 70vh!important;
+            min-height: 50vh!important;
         }
     }
     @include mobile {
@@ -604,6 +604,9 @@ footer {
                 }
                 .title {
                     margin-bottom: 1.2rem;
+                    h3 {
+                        font-family: "Raleway", sans-serif!important;
+                    }
                 }
 
                 .text {
