@@ -2,54 +2,50 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { linkResolver, hrefResolver } from '../prismic-configuration'
 import SubNav from './SubNav'
+import MobileNav from './MobileNav'
 
 const Navbar = ({ navItems, query, subNavItems }) => {
-    const [open, setOpen] = useState(false)
     const [subNavOpen, setSubNavOpen] = useState(false)
 
-    const handleMobileNav = () => {
-        setOpen(!open)
-    }
+    useEffect(() => setSubNavOpen(false), [query])
 
-    useEffect(() => {
-        const body = document.getElementsByTagName('body')[0]
-        if(open) body.style.overflow = 'hidden'
-        else body.style.overflow = 'visible'
-    }, [open])
+    console.log(open)
 
     return (
+        <>
         <nav>
-            <div className="container flex content-between items-center" style={{ height: '87px', position: 'relative' }}>
+            <div className="container flex content-between items-center">
                 <div className="logo-container">
                     <img src="/images/logo.jpg" alt="Logo" width='200px'/>
                 </div>
-                <div className={`nav-items-container flex-1 ${open ? 'open' : ''}`}>
+                <div className='nav-items-container flex-1'>
                     <ul className="flex content-end items-center">
-                        {navItems.map(item => (
-                            <Link as={linkResolver(item)} href={hrefResolver(item)} key={item.id}>
-                                <li
-                                    onMouseEnter={item.uid === 'services' ? () => setSubNavOpen(true) : null}
-                                    className={`${query === item.uid ? 'underlined' : ''} ${item.uid === 'contact-us' ? 'button' : ''}`} 
-                                    onClick={() => handleMobileNav()}
-                                >
-                                    {item.data.page_title[0].text}
-                                </li>
-                            </Link>
-                        ))}
+                        {navItems.map(item => {
+                            if(item.uid !== 'services'){
+                                return (
+                                    <Link as={linkResolver(item)} href={hrefResolver(item)} key={item.id}>
+                                        <li className={`${query === item.uid ? 'underlined' : ''} ${item.uid === 'contact-us' ? 'button' : ''}`} >
+                                            {item.data.page_title[0].text}
+                                        </li>
+                                    </Link>
+                                )
+                            } else {
+                                return (
+                                    <li onClick={() => setSubNavOpen(!subNavOpen)} key={item.id}>
+                                        {item.data.page_title[0].text}
+                                        <img src="/images/down-dark.svg" alt="" style={{ width: "17px", marginLeft: '4px' }}/>
+                                    </li>
+                                )
+                            }
+                        }
+                        )}
                     </ul>
                 </div>
-                <div className="menu-icon-container">
-                    <img 
-                        src={open ? '/images/x.svg' : '/images/menu.svg'} 
-                        alt="Menu Handle"
-                        onClick={() => handleMobileNav()}
-                    />
-                </div>    
             </div>
-            {subNavOpen &&
-                    <SubNav subNavItems={subNavItems} setSubNavOpen={setSubNavOpen}/>
-                }
+            {subNavOpen && <SubNav subNavItems={subNavItems}/> }
+        <MobileNav navItems={navItems} subNavItems={subNavItems} query={query}/>
         </nav>
+        </>
     )
 }
 
