@@ -59,6 +59,9 @@ const Footer = ({ navItems, subNavItems }) => {
                         </ul>
                     </div>
                 </div>
+                <div className="copyright">
+                        <p>&copy; {`${new Date(Date.now()).getFullYear()}`}, Quantum Cabling Installations Ltd Designed & Built by Picklebee Studios</p>
+                </div>
             </div>
         </footer>
     )
