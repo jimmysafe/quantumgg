@@ -41,6 +41,23 @@ const Footer = ({ navItems, subNavItems }) => {
                     <div className="email">
                         <p>support@quantum.gg</p>
                     </div>
+                    <div className="logos">
+                        <img src="/images/f-hellermann.svg" alt="hallermann"/>
+                        <img src="/images/f-bicsi.svg" alt="bicsi"/>
+                    </div>
+                    <div className="other-links">
+                        <ul>
+                            <Link as='sitemap' href="/[page]">
+                                <li>Sitemap</li>
+                            </Link>
+                            <Link as='/privacy-policy' href="/[page]">
+                                <li>Privacy Policy</li>
+                            </Link>
+                            <Link as='terms-and-conditions' href="/[page]">
+                                <li>Terms & Conditions</li>
+                            </Link>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </footer>

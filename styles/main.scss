@@ -181,6 +181,29 @@ footer {
             text-align: right;
             margin: 0.4rem 0;
         }
+        .logos {
+            margin-top: 2rem;
+            img:first-child {
+                margin-right: 1rem;
+            }
+        }
+        .other-links {
+            margin-top: 2rem;
+            ul {
+                display: flex;
+                font-size: 13px;
+                font-weight: bold;
+                justify-content: flex-end;
+                li {
+                    cursor: pointer;
+                    padding: 0 0.3rem;
+                    border-right: 1px solid $white;
+                    &:last-child {
+                        border-right: none;
+                    }
+                }
+            }
+        }
     }
 }
 
