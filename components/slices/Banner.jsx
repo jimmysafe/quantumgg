@@ -23,7 +23,7 @@ const Banner = (props) => {
                         <h1>{heading.text}</h1>
                     </div>
                 }
-                {sub_heading &&
+                {sub_heading.length > 0 &&
                     <div className="sub-heading">
                         <RichText render={sub_heading} />
                     </div>
