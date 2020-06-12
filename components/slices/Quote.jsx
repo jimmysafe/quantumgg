@@ -17,6 +17,9 @@ const Quote = ({ slice }) => {
         >
             <div className="section-quote">
                 <div className="container">
+                    <div className="mobile-quote">
+                        <img src="/images/mobile-quote.svg" alt="mini-quote"/>
+                    </div>
                     <div className="quote">
                         <h4>{quote_text[0].text}</h4>
                     </div>

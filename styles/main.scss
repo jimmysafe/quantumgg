@@ -273,6 +273,15 @@ footer {
     @include tablet {
         padding: 3rem;
     }
+    .mobile-quote {
+        display: none;
+        @include mobile {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+    }
     .quote {
         max-width: 700px;
         margin: 0 auto;
@@ -282,6 +291,9 @@ footer {
         margin-bottom: 2rem;
         @include tablet {
             font-size: 20px;
+        }
+        h4 {
+            font-family: "Raleway Bold", sans-serif!important;
         }
     }
     .author {
