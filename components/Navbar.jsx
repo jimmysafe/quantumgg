@@ -16,7 +16,11 @@ const Navbar = ({ navItems, query, subNavItems }) => {
         <nav>
             <div className="container flex content-between items-center">
                 <div className="logo-container">
-                    <img src="/images/logo.jpg" alt="Logo" width='200px'/>
+                    <Link as={'/home'} href={'/[page]'}>
+                        <a>
+                            <img src="/images/logo.jpg" alt="Logo" width='200px'/>
+                        </a>
+                    </Link>
                 </div>
                 <div className='nav-items-container flex-1'>
                     <ul className="flex content-end items-center">
