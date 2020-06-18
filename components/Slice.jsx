@@ -7,6 +7,8 @@ import MiniCards from "./slices/MiniCards"
 import Contacts from "./slices/Contacts"
 import ContactForm from "./ContactForm"
 import FooterCard from "./slices/FooterCard"
+import SingleImage from "./slices/SingleImage"
+import DoubleImages from "./slices/DoubleImages"
 
 const Slice = (props) => {
     const { slice_type } = props.slice;
@@ -31,6 +33,10 @@ const Slice = (props) => {
                 return <ContactForm {...props}/>
             case 'footer_card':
                 return <FooterCard {...props}/>
+            case 'single_image':
+                return <SingleImage {...props}/>
+            case 'double_images':
+                return <DoubleImages {...props}/>
             default:
                 return null
         }

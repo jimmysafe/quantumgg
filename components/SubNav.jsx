@@ -1,14 +1,13 @@
 import Link from 'next/link'
-import { linkResolver, hrefResolver } from '../prismic-configuration'
 
-const SubNav = ({ subNavItems }) => {
+const SubNav = ({ services }) => {
     return (
         <div className='service-sub-nav'>
             <div className='nav-items-container flex-1'>
                 <ul className="flex content-center items-center">
-                    {subNavItems.map(item => (
-                        <Link as={linkResolver(item)} href={hrefResolver(item)} key={item.id}>
-                            <li>{item.data.page_title[0].text}</li>
+                    {services.map(item => (
+                        <Link as={`/${item.uid}`} href="/[page]" key={item.uid}>
+                            <li>{item.name}</li>
                         </Link>
                     ))}
                 </ul>

@@ -1,0 +1,58 @@
+[
+    {
+        "name": "Home",
+        "uid": "home",
+        "desktopNav": true,
+        "mobileNav": true,
+        "footerNav": true
+    },
+    {
+        "name": "Services",
+        "uid": "services",
+        "desktopNav": true,
+        "mobileNav": true,
+        "footerNav": false
+    },
+    {
+        "name": "Guarantee",
+        "uid": "guarantee",
+        "desktopNav": true,
+        "mobileNav": true,
+        "footerNav": true
+    },
+    {
+        "name": "Our Work",
+        "uid": "our-work",
+        "desktopNav": true,
+        "mobileNav": true,
+        "footerNav": true
+    },
+    {
+        "name": "About Us",
+        "uid": "about-us",
+        "desktopNav": true,
+        "mobileNav": true,
+        "footerNav": true
+    },
+    {
+        "name": "Careers",
+        "uid": "careers",
+        "desktopNav": false,
+        "mobileNav": true,
+        "footerNav": true
+    },
+    {
+        "name": "Contact Us",
+        "uid": "contact-us",
+        "desktopNav": true,
+        "mobileNav": true,
+        "footerNav": true
+    },
+    {
+        "name": "The Local Community",
+        "uid": "the-local-community",
+        "desktopNav": false,
+        "mobileNav": true,
+        "footerNav": true
+    }
+]

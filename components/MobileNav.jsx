@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { linkResolver, hrefResolver } from '../prismic-configuration'
 
-const MobileNav = ({ navItems, subNavItems, query }) => {
+const MobileNav = ({ query, mobileNavPages, services }) => {
     const [open, setOpen] = useState(false)
     const [subNavOpen, setSubNavOpen] = useState(false)
     
@@ -30,26 +29,26 @@ const MobileNav = ({ navItems, subNavItems, query }) => {
             
                 <div className={`mobile-nav ${open ? 'open' : ' '}`}>
                     <ul className="flex content-end items-center">
-                        {navItems.map(item => {
+                        {mobileNavPages.map((item, i) => {
                             if(item.uid !== 'services'){
                                 return (
-                                    <Link as={linkResolver(item)} href={hrefResolver(item)} key={item.id}>
+                                    <Link as={`/${item.uid}`} href="/[page]" key={i}>
                                         <li className={`${query === item.uid ? 'underlined' : ''} ${item.uid === 'contact-us' ? 'button' : ''}`} >
-                                            {item.data.page_title[0].text}
+                                            {item.name}
                                         </li>
                                     </Link>
                                 )
                             } else {
                                 return (
                                     <>
-                                    <li onClick={() => setSubNavOpen(!subNavOpen)} key={item.id}>
-                                        {item.data.page_title[0].text}
+                                    <li onClick={() => setSubNavOpen(!subNavOpen)} key={item.uid}>
+                                        {item.name}
                                         <img src="/images/down-light.svg" alt="" style={{ width: "17px", marginLeft: '4px' }}/>
                                     </li>
                                     <ul className={`mobile-sub-nav flex content-center items-center ${subNavOpen ? 'open' : ' '}`}>
-                                        {subNavItems.map(item => (
-                                            <Link as={linkResolver(item)} href={hrefResolver(item)} key={item.id}>
-                                                <li>{item.data.page_title[0].text}</li>
+                                        {services.map((item) => (
+                                            <Link as={`/${item.uid}`} href="/[page]" key={item.uid}>
+                                                <li>{item.name}</li>
                                             </Link>
                                         ))}
                                     </ul>

@@ -1,15 +1,13 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { linkResolver, hrefResolver } from '../prismic-configuration'
 import SubNav from './SubNav'
 import MobileNav from './MobileNav'
 
-const Navbar = ({ navItems, query, subNavItems }) => {
+
+const Navbar = ({ query, desktopNavPages, mobileNavPages, services }) => {
     const [subNavOpen, setSubNavOpen] = useState(false)
 
     useEffect(() => setSubNavOpen(false), [query])
-
-    console.log(open)
 
     return (
         <>
@@ -24,19 +22,19 @@ const Navbar = ({ navItems, query, subNavItems }) => {
                 </div>
                 <div className='nav-items-container flex-1'>
                     <ul className="flex content-end items-center">
-                        {navItems.map(item => {
+                        {desktopNavPages.map(item => {
                             if(item.uid !== 'services'){
                                 return (
-                                    <Link as={linkResolver(item)} href={hrefResolver(item)} key={item.id}>
+                                    <Link as={`/${item.uid}`} href="/[page]" key={item.uid}>
                                         <li className={`${query === item.uid ? 'underlined' : ''} ${item.uid === 'contact-us' ? 'button' : ''}`} >
-                                            {item.data.page_title[0].text}
+                                            {item.name}
                                         </li>
                                     </Link>
                                 )
                             } else {
                                 return (
-                                    <li onClick={() => setSubNavOpen(!subNavOpen)} key={item.id}>
-                                        {item.data.page_title[0].text}
+                                    <li onClick={() => setSubNavOpen(!subNavOpen)} key={item.uid}>
+                                        {item.name}
                                         <img src="/images/down-dark.svg" alt="" style={{ width: "17px", marginLeft: '4px' }}/>
                                     </li>
                                 )
@@ -46,8 +44,8 @@ const Navbar = ({ navItems, query, subNavItems }) => {
                     </ul>
                 </div>
             </div>
-            {subNavOpen && <SubNav subNavItems={subNavItems}/> }
-        <MobileNav navItems={navItems} subNavItems={subNavItems} query={query}/>
+            {subNavOpen && <SubNav services={services}/> }
+            <MobileNav mobileNavPages={mobileNavPages} services={services} query={query}/>
         </nav>
         </>
     )

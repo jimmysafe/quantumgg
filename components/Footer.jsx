@@ -1,16 +1,15 @@
 import Link from 'next/link'
-import { linkResolver, hrefResolver } from '../prismic-configuration'
 
-const Footer = ({ navItems, subNavItems }) => {
+const Footer = ({ footerNavPages, services }) => {
 
     return (
         <footer>
             <div className="footer-container container">
                 <div className="footer-main-nav flex-1">
                     <ul>
-                        {navItems.map(item => (
-                            <Link as={linkResolver(item)} href={hrefResolver(item)} key={item.id}>
-                                <li className="footer-nav-link">{item.data.page_title[0].text}</li>
+                        {footerNavPages.map(item => (
+                            <Link as={`/${item.uid}`} href="/[page]" key={item.uid}>
+                                <li className="footer-nav-link">{item.name}</li>
                             </Link>
                         ))}
                     </ul>
@@ -18,9 +17,9 @@ const Footer = ({ navItems, subNavItems }) => {
                 <div className="footer-services-nav flex-1">
                     <ul className="text-center">
                         <li className="m-b-md" style={{ marginTop: '0.6rem' }}>Services</li>
-                        {subNavItems.map(item => (
-                            <Link as={linkResolver(item)} href={hrefResolver(item)} key={item.id}>
-                                <li className="footer-nav-link">{item.data.page_title[0].text}</li>
+                        {services.map(item => (
+                            <Link as={`/${item.uid}`} href="/[page]" key={item.uid}>
+                                <li className="footer-nav-link">{item.name}</li>
                             </Link>
                         ))}
                     </ul>
@@ -60,7 +59,7 @@ const Footer = ({ navItems, subNavItems }) => {
                     </div>
                 </div>
                 <div className="copyright">
-                        <p>&copy; {`${new Date(Date.now()).getFullYear()}`}, Quantum Cabling Installations Ltd Designed & Built by Picklebee Studios</p>
+                        <p>&copy; {`${new Date(Date.now()).getFullYear()}`}, Quantum Cabling Installations Ltd Designed & Built by <a href="http://www.picklebeestudios.com/en/" target="_blank">Picklebee Studios</a></p>
                 </div>
             </div>
         </footer>

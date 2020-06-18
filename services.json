@@ -1,0 +1,18 @@
+[
+    {
+        "name": "Data & Voice Cabling",
+        "uid": "data-and-voice-cabling"
+    },
+    {
+        "name": "Fibre Optic",
+        "uid": "fibre-optic"
+    },
+    {
+        "name": "Facilities Management",
+        "uid": "facilities-management"
+    },
+    {
+        "name": "Wireless Networking",
+        "uid": "wireless-networking"
+    }
+]
