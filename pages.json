@@ -42,16 +42,16 @@
         "footerNav": true
     },
     {
-        "name": "Contact Us",
-        "uid": "contact-us",
-        "desktopNav": true,
+        "name": "The Local Community",
+        "uid": "the-local-community",
+        "desktopNav": false,
         "mobileNav": true,
         "footerNav": true
     },
     {
-        "name": "The Local Community",
-        "uid": "the-local-community",
-        "desktopNav": false,
+        "name": "Contact Us",
+        "uid": "contact-us",
+        "desktopNav": true,
         "mobileNav": true,
         "footerNav": true
     }
