@@ -9,6 +9,10 @@ const ContactForm = () => {
     const [submitting, setSubmitting] = useState(false)
     const [showSuccessMessage, setShowSuccessMessage]= useState(false)
     const [showErrorMessage, setShowErrorMessage]= useState(false)
+
+    console.log(siteUrl)
+    console.log(process.env.NODE_ENV)
+
     const formik = useFormik({
         initialValues: {
           name: '',
