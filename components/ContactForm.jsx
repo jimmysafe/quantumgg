@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useFormik } from 'formik'
 import Button from './elements/Button';
 import axios from 'axios'
+import { siteUrl } from '../config'
 
 const ContactForm = () => {
     const [submitting, setSubmitting] = useState(false)
@@ -18,7 +19,7 @@ const ContactForm = () => {
         },
         onSubmit: async(values) => {
             setSubmitting(true)
-            let res = await axios.post('http://localhost:3000/api/mail', { values })
+            let res = await axios.post(`${siteUrl}/api/mail`, { values })
             console.log(res.data)
             if(res.data.success) {
                 setSubmitting(false)
