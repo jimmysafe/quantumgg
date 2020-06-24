@@ -2,7 +2,6 @@
 import { RichText } from 'prismic-reactjs';
 
 const MiniCards = ({ slice }) => {
-    console.log(slice)
     return (
         <div className="section-mini-cards">
             <div className="container">

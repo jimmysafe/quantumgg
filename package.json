@@ -8,7 +8,9 @@
     "start": "next start"
   },
   "dependencies": {
+    "@sendgrid/mail": "^7.2.0",
     "@zeit/next-sass": "^1.0.1",
+    "axios": "^0.19.2",
     "formik": "^2.1.4",
     "next": "9.4.4",
     "nextjs-fonts": "^0.22.0",

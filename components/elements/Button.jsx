@@ -1,7 +1,7 @@
 
-const Button = ({ children, dark, pxl }) => {
+const Button = ({ children, dark, pxl, disabled }) => {
     return (
-        <button className={`${dark ? 'btn dark' : 'btn'} ${pxl ? 'p-l-xl p-r-xl' : ''}`}>
+        <button disabled={disabled} className={`${dark ? 'btn dark' : 'btn'} ${pxl ? 'p-l-xl p-r-xl' : ''}`}>
             {children}
         </button>
     )

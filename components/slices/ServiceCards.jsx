@@ -3,7 +3,6 @@ import { RichText } from 'prismic-reactjs';
 
 
 const ServiceCards = ({ slice: { items } }) => {
-    console.log(items)
     return (
         <div className="section-service-cards">
             <div className="container">

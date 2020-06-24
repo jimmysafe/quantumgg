@@ -2,7 +2,6 @@ import Link from 'next/link'
 import Button from '../elements/Button'
 
 const Cards = ({ slice }) => {
-    console.log(slice)
     return (
         <div className="section-cards">
             <div className="container flex column">

@@ -2,10 +2,12 @@
 import { useState } from 'react'
 import { useFormik } from 'formik'
 import Button from './elements/Button';
+import axios from 'axios'
 
 const ContactForm = () => {
     const [submitting, setSubmitting] = useState(false)
-
+    const [showSuccessMessage, setShowSuccessMessage]= useState(false)
+    const [showErrorMessage, setShowErrorMessage]= useState(false)
     const formik = useFormik({
         initialValues: {
           name: '',
@@ -15,10 +17,19 @@ const ContactForm = () => {
           message: ''
         },
         onSubmit: async(values) => {
-            const { email, password } = values
-            console.log(values)
-            // setSubmitting(true)
-            // await loginUserToShopify(email, password)
+            setSubmitting(true)
+            let res = await axios.post('http://localhost:3000/api/mail', { values })
+            console.log(res.data)
+            if(res.data.success) {
+                setSubmitting(false)
+                formik.handleReset()
+                setShowSuccessMessage(true)
+                setShowErrorMessage(false)
+            } else {
+                setSubmitting(false)
+                setShowSuccessMessage(false)
+                setShowErrorMessage(true)
+            }
         },
       });
 
@@ -37,6 +48,7 @@ const ContactForm = () => {
                                 type="text" 
                                 id="name" 
                                 name="name" 
+                                required
                                 placeholder="Your Name" 
                                 onChange={formik.handleChange} 
                                 value={formik.values.name}
@@ -46,6 +58,7 @@ const ContactForm = () => {
                             <span>Email</span>
                             <input 
                                 type="email" 
+                                required
                                 id="email" 
                                 name="email" 
                                 placeholder="Your Email" 
@@ -72,6 +85,7 @@ const ContactForm = () => {
                                 type="text" 
                                 id="phone" 
                                 name="phone" 
+                                required
                                 placeholder="Contact Number" 
                                 onChange={formik.handleChange} 
                                 value={formik.values.phone}
@@ -81,6 +95,7 @@ const ContactForm = () => {
                     <div className="message">
                         <span>Message</span>
                         <textarea 
+                            required
                             name="message" 
                             id="message" 
                             cols="30" 
@@ -90,8 +105,24 @@ const ContactForm = () => {
                             value={formik.values.message}
                         />
                     </div>
+                    
+
+                    {showErrorMessage || showSuccessMessage &&
+                        <div className="notification">
+                            {showSuccessMessage && 
+                                <div className="notification-message success">
+                                    <p>Message Sent! We will get back in touch asap!</p>
+                                </div>
+                            }
+                            {showErrorMessage &&
+                                <div className="notification-message error">
+                                    <p>Oops! Something went wrong</p>
+                                </div>
+                            }
+                        </div>
+                    }
                     <div className="flex content-center items-center m-t-md">
-                        <Button dark pxl>Send</Button>
+                        <Button dark pxl disabled={submitting}>{submitting ? 'Sending..' : 'Send'}</Button>
                     </div>
                 </form>
             </div>
