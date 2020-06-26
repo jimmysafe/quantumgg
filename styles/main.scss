@@ -704,7 +704,10 @@ footer {
 }
 
 .section-double-images {
-    padding: 2rem 1rem;
+    padding: 0 1rem;
+    padding-bottom: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
     .container {
         display: flex;
         justify-content: center;
@@ -714,8 +717,15 @@ footer {
         .img-cont {
             margin: 1%;
             flex: 1;
-            img {
+            // img {
+            //     width: 100%;
+            // }
+            .image {
+                min-height: 350px;
                 width: 100%;
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
             }
             @include mobile {
                 margin: 1rem 0;

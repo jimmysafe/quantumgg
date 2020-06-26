@@ -12,8 +12,8 @@ const DoubleImages = (props) => {
                         <div className="title">
                             <RichText render={item.image_title}/>
                         </div>
-                        <div className="image">
-                            <img src={item.image.url} alt={item.image.alt}/>
+                        <div className="image" style={{ backgroundImage:`url('${item.image.url}')` }}>
+                            {/* <img src={item.image.url} alt={item.image.alt}/> */}
                         </div>
                     </div>
                 ))}

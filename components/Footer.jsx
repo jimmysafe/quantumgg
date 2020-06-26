@@ -26,7 +26,7 @@ const Footer = ({ footerNavPages, services }) => {
                 </div>
                 <div className="footer-company-info flex column flex-1">
                     <div className="social-icons">
-                        <a href="https://facebook.com" target="_blank">
+                        <a href="https://www.facebook.com/Quantum-Cabling-Installations-393831187362328/" target="_blank">
                             <img src="/images/facebook.svg" alt="Facebook Quantum"/>
                         </a>
                     </div>

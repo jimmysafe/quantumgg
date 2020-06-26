@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Fragment } from 'react'
 import Link from 'next/link'
 
 const MobileNav = ({ query, mobileNavPages, services }) => {
@@ -29,10 +29,10 @@ const MobileNav = ({ query, mobileNavPages, services }) => {
             
                 <div className={`mobile-nav ${open ? 'open' : ' '}`}>
                     <ul className="flex content-end items-center">
-                        {mobileNavPages.map((item, i) => {
+                        {mobileNavPages.map(item => {
                             if(item.uid !== 'services'){
                                 return (
-                                    <Link as={`/${item.uid}`} href="/[page]" key={i}>
+                                    <Link as={`/${item.uid}`} href="/[page]" key={item.uid}>
                                         <li className={`${query === item.uid ? 'underlined' : ''} ${item.uid === 'contact-us' ? 'button' : ''}`} >
                                             {item.name}
                                         </li>
@@ -40,19 +40,19 @@ const MobileNav = ({ query, mobileNavPages, services }) => {
                                 )
                             } else {
                                 return (
-                                    <>
-                                    <li onClick={() => setSubNavOpen(!subNavOpen)} key={item.uid}>
+                                    <Fragment key={item.uid}>
+                                    <li onClick={() => setSubNavOpen(!subNavOpen)}>
                                         {item.name}
                                         <img src="/images/down-light.svg" alt="" style={{ width: "17px", marginLeft: '4px' }}/>
                                     </li>
                                     <ul className={`mobile-sub-nav flex content-center items-center ${subNavOpen ? 'open' : ' '}`}>
-                                        {services.map((item) => (
+                                        {services.map((item, i) => (
                                             <Link as={`/${item.uid}`} href="/[page]" key={item.uid}>
                                                 <li>{item.name}</li>
                                             </Link>
                                         ))}
                                     </ul>
-                                    </>
+                                    </Fragment>
                                 )
                             }
                         }

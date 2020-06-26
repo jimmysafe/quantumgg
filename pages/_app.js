@@ -1,12 +1,20 @@
 // import App from 'next/app'
 import '../styles/main.scss'
 import Layout from '../components/Layout'
+import Head from 'next/head'
 
 function MyApp({ Component, pageProps }) {
     return (
+        <>
+        <Head>
+            <meta name="apple-mobile-web-app-status-bar-style" content="#2A2766"/>
+            <meta name="msapplication-navbutton-color" content="#2A2766"/>
+            <meta name="theme-color" content="#2A2766"/>
+        </Head>
         <Layout>
             <Component {...pageProps} />
         </Layout>
+        </>
     )
   }
   
