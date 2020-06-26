@@ -46,9 +46,6 @@ const Footer = ({ footerNavPages, services }) => {
                     </div>
                     <div className="other-links">
                         <ul>
-                            <Link as='sitemap' href="/[page]">
-                                <li>Sitemap</li>
-                            </Link>
                             <Link as='/privacy-policy' href="/[page]">
                                 <li>Privacy Policy</li>
                             </Link>
