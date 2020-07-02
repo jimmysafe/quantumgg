@@ -1,24 +1,37 @@
-const withSass = require('@zeit/next-sass')
-const withFonts = require('nextjs-fonts');
+const withPlugins = require('next-compose-plugins');
 
+const sass = require('@zeit/next-sass')
+const fonts = require('nextjs-fonts');
+const css = require('@zeit/next-css');
 
-module.exports = withSass(withFonts({
+const nextConfig = {
     webpack(config, options) {
-        const originalEntry = config.entry;
-
-        config.entry = async () => {
-          const entries = await originalEntry();
-    
-          // add custom polyfills into specific next.js bundle
-          // https://github.com/zeit/next.js/issues/10794
-          const nextPolyfillPath = 'static/runtime/polyfills.js';
-          const nextPolyfills = entries[nextPolyfillPath];
-          if (nextPolyfills) {
-            entries[nextPolyfillPath] = [nextPolyfills, './polyfills.js'];
-          }
-    
-          return entries;
-        };
         return config;
     },
-}));
+}
+
+module.exports = withPlugins([
+    [sass],
+    [
+        css,
+        {
+            postcssLoaderOptions: {
+                parser: true,
+            },
+        },
+    ],
+    [fonts]
+], nextConfig)
+
+
+
+
+// const withSass = require('@zeit/next-sass')
+// const withFonts = require('nextjs-fonts');
+
+
+// module.exports = withSass(withFonts({
+//     webpack(config, options) {
+//         return config;
+//     },
+// }));
