@@ -10,6 +10,7 @@ function MyApp({ Component, pageProps }) {
             <meta name="apple-mobile-web-app-status-bar-style" content="#2A2766"/>
             <meta name="msapplication-navbutton-color" content="#2A2766"/>
             <meta name="theme-color" content="#2A2766"/>
+            <script src="/scripts/modernizr.js" type="text/javascript"></script>
         </Head>
         <Layout>
             <Component {...pageProps} />
