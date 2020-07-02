@@ -30,8 +30,7 @@ const Card = ({ icon, title, text, link }) => {
     return (
         <div className="card">
             {icon &&
-                <div className="card-icon">
-                    <img src={icon.url} alt={icon.alt}/>
+                <div className="card-icon" style={{ backgroundImage: `url('${icon.url}')` }}>
                 </div>
             }
             {title &&
