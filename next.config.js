@@ -1,8 +1,8 @@
 const withPlugins = require('next-compose-plugins');
 
-const sass = require('@zeit/next-sass')
-const fonts = require('nextjs-fonts');
-const css = require('@zeit/next-css');
+const withSass = require('@zeit/next-sass')
+const withFonts = require('nextjs-fonts');
+// const css = require('@zeit/next-css');
 
 const nextConfig = {
     webpack(config, options) {
@@ -11,16 +11,8 @@ const nextConfig = {
 }
 
 module.exports = withPlugins([
-    [sass],
-    [
-        css,
-        {
-            postcssLoaderOptions: {
-                parser: true,
-            },
-        },
-    ],
-    [fonts]
+    withSass,
+    withFonts
 ], nextConfig)
 
 
