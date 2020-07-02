@@ -764,3 +764,10 @@ footer {
         background: red;
     }
 }
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .section-banner {
+        display: block;
+        padding: 2rem 0;
+    }
+}
