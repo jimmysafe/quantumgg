@@ -7,7 +7,7 @@ export default (req, res) => {
         sgMail.setApiKey(process.env.SENDGRID_API_KEY);
         const msg = {
             to: 'support@quantum.gg',
-            from: 'support@quantum.gg',
+            from: 'website@quantum.gg',
             subject: 'Contact Request - Quantum Website',
             html: `<p>Name: ${name}</p> <p>Email: ${email}</p> <p>Company: ${company}</p> <p>Phone: ${phone}</p> <p>Message: ${message}</p>`,
         };
